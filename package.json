@@ -1,0 +1,28 @@
+{
+  "name": "teamprofile",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sav2234/teamprofile.git"
+  },
+  "author": "Savion Elsey-Williams",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sav2234/teamprofile/issues"
+  },
+  "homepage": "https://github.com/Sav2234/teamprofile#readme",
+  "devDependencies": {
+    "jest": "^27.2.5"
+  },
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  }
+}
