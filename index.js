@@ -178,6 +178,8 @@ function htmlGen(allEmployees){
         const element = allEmployees[i];
         console.log(element.name)
     }
+
+    document.getElementById("card-title").innerHTML = response.name
     
 //     const engineerCard =
 

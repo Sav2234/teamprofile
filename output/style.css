@@ -26,3 +26,8 @@
     justify-content: center;
     margin: 100px;
 }
+
+.list-group-item{
+    height: 67px;
+    background-color: transparent;
+}
