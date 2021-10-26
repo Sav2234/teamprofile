@@ -83,7 +83,7 @@ function createEngineer() {
         console.log(response)
         let engineer = new Engineer(response.EngineerName, response.EngineerID, response.EngineerEmail, response.EngineerGithub)
         console.log(engineer.name + " Engineer Created")
-        allEmployees.push(Engineer)
+        allEmployees.push(engineer)
         start()
     })
 
@@ -119,7 +119,7 @@ function createIntern() {
         console.log(response)
         let intern = new Intern(response.InternName, response.InternID, response.InternEmail, response.InternSchool)
         console.log(intern.name + " Intern Created")
-        allEmployees.push(Intern)
+        allEmployees.push(intern)
         start()
     })
 
@@ -155,14 +155,14 @@ function createManager() {
         let manager = new Manager(response.ManagerName, response.ManagerID, response.ManagerEmail, response.OfficeNumber)
         console.log(manager.name + " Manager Created")
         console.log(response)
-        allEmployees.push(Manager)
+        allEmployees.push(manager)
         start()
     })
 }
 
 
 function createTeam() {
-    console.log(allEmployees)
+    htmlGen(allEmployees)
     // const renderHTML = render (allEmployees)
     fs.writeFile("./team.html", JSON.stringify(allEmployees), function (err) {
         if (err) {
@@ -171,4 +171,20 @@ function createTeam() {
         console.log("file written");
     })
 }
+
+function htmlGen(allEmployees){
+    console.log(allEmployees)
+    for (let i = 0; i < allEmployees.length; i++) {
+        const element = allEmployees[i];
+        console.log(element.name)
+    }
+    
+    const engineerCard =
+
+    const managerCard =
+
+    const internCard =
+
+}
+
 start()
