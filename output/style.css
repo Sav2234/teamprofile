@@ -1,0 +1,28 @@
+.card{
+    border: 0px;
+    margin: 1rem;
+    height: 200px;
+}
+
+.card-title{
+    text-align: center;
+    background-color: grey;
+    width: 15rem;
+    padding: 10px;
+    margin: 0%;
+}
+
+.card-body{
+    padding: 0;
+    font-size: 18px;
+    background-color: lightblue;
+}
+
+.card-text{
+    background-color: grey;
+}
+
+.row{
+    justify-content: center;
+    margin: 100px;
+}

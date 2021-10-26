@@ -179,11 +179,11 @@ function htmlGen(allEmployees){
         console.log(element.name)
     }
     
-    const engineerCard =
+//     const engineerCard =
 
-    const managerCard =
+//     const managerCard =
 
-    const internCard =
+//     const internCard =
 
 }
 
