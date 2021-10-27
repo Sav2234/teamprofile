@@ -18,23 +18,23 @@ const questions = [
 
 ]
 
-function start(){
-inquirer.prompt([
-    {
-        type: "list",
-        name: "addMore",
-        message: "Would you like to create an employee?",
-        choices: ["Yes", "No"]
-    }
-]).then(response => {
-    if (response.addMore === "Yes") {
-        teamQuestions()
-    }
+function start() {
+    inquirer.prompt([
+        {
+            type: "list",
+            name: "addMore",
+            message: "Would you like to create an employee?",
+            choices: ["Yes", "No"]
+        }
+    ]).then(response => {
+        if (response.addMore === "Yes") {
+            teamQuestions()
+        }
 
-    else if (response.addMore === "No") {
-        createTeam()
-    }
-})
+        else if (response.addMore === "No") {
+            createTeam()
+        }
+    })
 }
 //note wrap in a function
 function teamQuestions() {
@@ -162,9 +162,9 @@ function createManager() {
 
 
 function createTeam() {
-    htmlGen(allEmployees)
+    
     // const renderHTML = render (allEmployees)
-    fs.writeFile("./team.html", JSON.stringify(allEmployees), function (err) {
+    fs.writeFile("./team.html", htmlGen(allEmployees), function (err) {
         if (err) {
             return console.log(err);
         }
@@ -172,21 +172,68 @@ function createTeam() {
     })
 }
 
-function htmlGen(allEmployees){
+function htmlGen(allEmployees) {
     console.log(allEmployees)
+    var HTMLstore = `<!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+      <title>My Team</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="output/style.css">
+    </head>
+    
+    <body>`
     for (let i = 0; i < allEmployees.length; i++) {
-        const element = allEmployees[i];
-        console.log(element.name)
+        const element = `<div class="card" style="width: 15rem; height: 15rem;">
+        <div class="card-body">
+          <h5 class="card-title">${allEmployees[i].name}</h5>
+          <ul class="list-group">
+            <li class="list-group-item">${allEmployees[i].email}</li>
+            <li class="list-group-item">${allEmployees[i].id}</li>
+            <li class="list-group-item">${alt(allEmployees[i])}</li>
+            </ul>
+        </div>
+      </div>`;
+        HTMLstore += element
+    }
+    HTMLstore += `<footer>
+    </footer>
+  </body>
+  <script src="/index.js"></script>
+  
+  </html>`
+
+
+    return HTMLstore
+
+    // document.getElementById("card-title").innerHTML = response.name
+
+    //     const engineerCard =
+
+    //     const managerCard =
+
+    //     const internCard =
+
+}
+
+function alt(employee){
+    if (employee.getRole()==="Intern") {
+        return employee.internschool()
     }
 
-    document.getElementById("card-title").innerHTML = response.name
-    
-//     const engineerCard =
+    else if(employee.getRole()==="Engineer") {
+        return employee.engineergithub()
+    }
 
-//     const managerCard =
-
-//     const internCard =
-
+    else if (employee.getRole()==="Manager") {
+        return employee.managerofficeNumber()
+    }
 }
 
 start()
