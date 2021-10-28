@@ -4,8 +4,6 @@ const path = require('path');
 const Manager = require('./lib/Manager')
 const Engineer = require('./lib/Engineer')
 const Intern = require('./lib/Intern');
-const { report } = require('process');
-
 const allEmployees = [];
 
 const questions = [
@@ -162,7 +160,7 @@ function createManager() {
 
 
 function createTeam() {
-    
+
     // const renderHTML = render (allEmployees)
     fs.writeFile("./team.html", htmlGen(allEmployees), function (err) {
         if (err) {
@@ -187,10 +185,16 @@ function htmlGen(allEmployees) {
       <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="output/style.css">
     </head>
+    <header class= "teamprofile">
+    <h1 class="title">TEAM PROFILE</h1>
+    </header>
+    <body>
+    <div class= "row">`
+  ;
     
-    <body>`
     for (let i = 0; i < allEmployees.length; i++) {
-        const element = `<div class="card" style="width: 15rem; height: 15rem;">
+        const element = `
+        <div class="card" style="width: 15rem; height: 15rem;">
         <div class="card-body">
           <h5 class="card-title">${allEmployees[i].name}</h5>
           <ul class="list-group">
@@ -199,39 +203,29 @@ function htmlGen(allEmployees) {
             <li class="list-group-item">${alt(allEmployees[i])}</li>
             </ul>
         </div>
-      </div>`;
+        </div>`;
         HTMLstore += element
     }
-    HTMLstore += `<footer>
-    </footer>
-  </body>
+    HTMLstore += 
+    `</div>
+    </body>
   <script src="/index.js"></script>
   
-  </html>`
-
+  </html>`;
 
     return HTMLstore
-
-    // document.getElementById("card-title").innerHTML = response.name
-
-    //     const engineerCard =
-
-    //     const managerCard =
-
-    //     const internCard =
-
 }
 
-function alt(employee){
-    if (employee.getRole()==="Intern") {
+function alt(employee) {
+    if (employee.getRole() === "Intern") {
         return employee.internschool()
     }
 
-    else if(employee.getRole()==="Engineer") {
+    else if (employee.getRole() === "Engineer") {
         return employee.engineergithub()
     }
 
-    else if (employee.getRole()==="Manager") {
+    else if (employee.getRole() === "Manager") {
         return employee.managerofficeNumber()
     }
 }

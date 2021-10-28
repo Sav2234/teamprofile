@@ -3,18 +3,6 @@ const inquirer = require('inquirer');
 const Intern = require('../lib/intern.js');
 let questions;
 
-// async function createIntern() {
-//     let internResponses = await inquirer.prompt(questions.intern);
-
-
-//     let intern = new Intern
-//         (internResponses.internname,
-//             internResponses.internid,
-//             internResponses.internemail);
-//     console.log("intern has been created!");
-//     return;
-//     }
-
 test('intern_name', () => {
     const name = 'Anna Coleen'
     let intern = new Intern(name);
@@ -35,14 +23,8 @@ test('intern_email', () => {
 
 test('intern_role', () => {
     const role = 'Intern'
-    let intern = new Intern('Jarad Higgins', 5, 'yeah@mail.com');
-    expect(intern.getRole()).toBe(role)
-})
-
-test('intern_school', () => {
-    const school = 'Shujin Academy'
-    let intern = new Intern('Jarad Higgins', 5, 'yeah@mail.com', 'Shujin Academy');
-    expect(intern.school).toBe(school)
+    let intern = new Intern('Jarad Higgins', 5, 'yeah@mail.com', role);
+    expect(intern.role).toBe(role)
 })
 
 questions = [
