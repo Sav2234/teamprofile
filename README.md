@@ -7,7 +7,7 @@ Description
 This is a mock up teamprofile generator used to create new employees for a company.
 
 Visuals
-Here's a link to a tutorial video: [link] *please be advised that this video may not be accurate/up to date with what is seen in the current repository files/actual personal use as the repository is subject to change.*
+Here's a link to a tutorial video: https://youtu.be/M-E38CS4aks *please be advised that this video may not be accurate/up to date with what is seen in the current repository files/actual personal use as the repository is subject to change.*
 
 Installation
 Use Git Bash to pull from the repository to begin
